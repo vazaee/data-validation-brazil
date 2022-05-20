@@ -2,9 +2,11 @@
 # from cpf_cnpj import Document
 # import re
 # from br_phone import BrPhone
+from cep_access import FindAddress
+import requests
 
-from datetime import datetime, timedelta
-from br_dates import BrDate
+# from datetime import datetime, timedelta
+# from br_dates import BrDate
 
 # cnpj_example = "35379838000112"
 # cpf_example = "32007832062"
@@ -41,5 +43,15 @@ from br_dates import BrDate
 # today = datetime.today()
 # tomorrow = datetime.today() + timedelta(days=1, hours=20)
 
-today = BrDate()
-print(today.reg_time())
+# today = BrDate()
+# print(today.reg_time())
+
+cep = "01001000"
+cep_object = FindAddress(cep)
+# print(cep_object)
+
+# r = requests.get("https://viacep.com.br/ws/01001000/json")
+# print(r.text)
+
+neighborhood, city, fu = cep_object.access_by_cep()
+print(neighborhood, city, fu)
