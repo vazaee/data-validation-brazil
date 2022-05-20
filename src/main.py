@@ -1,5 +1,8 @@
-from cpf import Cpf
+from cpf_cnpj import Document
 
-cpf_1 = Cpf("15316264754")
-print(cpf_1)
 
+cnpj_example = "35379838000112"
+cpf_example = "32007832062"
+
+doc = Document.create_document(cnpj_example)
+print(doc)
